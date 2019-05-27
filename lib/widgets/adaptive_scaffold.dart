@@ -17,6 +17,11 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
       return CupertinoApp(
         theme: getIOSTheme(),
         home: CupertinoPageScaffold(
+          navigationBar: CupertinoNavigationBar(
+            heroTag: Text(
+              "BMI Calculator",
+            ),
+          ),
           child: BMICalculator(),
         ),
       );
@@ -24,6 +29,9 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
       return MaterialApp(
         theme: getAndroidTheme(),
         home: Scaffold(
+          appBar: AppBar(
+            title: Text('BMI Calculator'),
+          ),
           body: BMICalculator(),
           floatingActionButton: FloatingActionButton(
             child: Icon(Icons.add),

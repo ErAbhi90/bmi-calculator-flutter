@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-final ThemeData _androidTheme = ThemeData(
+final ThemeData _androidTheme = ThemeData.dark().copyWith(
   primaryColor: Color(0xFF0A0E21),
   scaffoldBackgroundColor: Color(0xFF0A0E21),
-  accentColor: Colors.teal,
   textTheme: TextTheme(
     body1: TextStyle(
       color: Colors.white,
