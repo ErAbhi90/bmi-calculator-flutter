@@ -12,6 +12,29 @@ class BMICalculator extends StatefulWidget {
 }
 
 class _BMICalculatorState extends State<BMICalculator> {
+  Color maleCardColor = reusable_card_inactive_color;
+  Color femaleCardColor = reusable_card_inactive_color;
+
+  void updateColor(int gender) {
+    if (gender == 1) {
+      if (maleCardColor == reusable_card_inactive_color) {
+        maleCardColor = reusable_card_active_color;
+        femaleCardColor = reusable_card_inactive_color;
+      } else {
+        maleCardColor = reusable_card_inactive_color;
+      }
+    }
+
+    if (gender == 2) {
+      if (femaleCardColor == reusable_card_inactive_color) {
+        femaleCardColor = reusable_card_active_color;
+        maleCardColor = reusable_card_inactive_color;
+      } else {
+        femaleCardColor = reusable_card_inactive_color;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,20 +43,34 @@ class _BMICalculatorState extends State<BMICalculator> {
           child: Row(
             children: <Widget>[
               Expanded(
-                child: ReusableCard(
-                  cardColor: reusable_card_active_color,
-                  cardChild: CardIconContent(
-                    cardIcon: FontAwesomeIcons.mars,
-                    cardLabel: text_reusable_card_male,
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      updateColor(1);
+                    });
+                  },
+                  child: ReusableCard(
+                    cardColor: reusable_card_inactive_color,
+                    cardChild: CardIconContent(
+                      cardIcon: FontAwesomeIcons.mars,
+                      cardLabel: text_reusable_card_male,
+                    ),
                   ),
                 ),
               ),
               Expanded(
-                child: ReusableCard(
-                  cardColor: reusable_card_active_color,
-                  cardChild: CardIconContent(
-                    cardIcon: FontAwesomeIcons.venus,
-                    cardLabel: text_reusable_card_female,
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      updateColor(2);
+                    });
+                  },
+                  child: ReusableCard(
+                    cardColor: reusable_card_inactive_color,
+                    cardChild: CardIconContent(
+                      cardIcon: FontAwesomeIcons.venus,
+                      cardLabel: text_reusable_card_female,
+                    ),
                   ),
                 ),
               ),
