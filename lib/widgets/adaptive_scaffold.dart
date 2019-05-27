@@ -1,7 +1,7 @@
 import 'dart:io';
 
+import 'package:bmi_calculator/common/app_theme.dart';
 import 'package:bmi_calculator/ui/bmi_calculator.dart';
-import 'package:bmi_calculator/widgets/app_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

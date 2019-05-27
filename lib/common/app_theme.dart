@@ -1,23 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'app_colors.dart';
+
 final ThemeData _androidTheme = ThemeData.dark().copyWith(
-  primaryColor: Color(0xFF0A0E21),
-  scaffoldBackgroundColor: Color(0xFF0A0E21),
+  primaryColor: app_primary_color,
+  scaffoldBackgroundColor: app_scaffold_background_color,
   textTheme: TextTheme(
     body1: TextStyle(
-      color: Colors.white,
+      color: app_text_color,
     ),
   ),
 );
 
 final CupertinoThemeData _iosTheme = CupertinoThemeData(
-  primaryColor: Color(0xFF0A0E21),
-  scaffoldBackgroundColor: Color(0xFF0A0E21),
-  barBackgroundColor: Colors.teal,
+  primaryColor: app_primary_color,
+  scaffoldBackgroundColor: app_scaffold_background_color,
+  barBackgroundColor: app_accent_color,
   textTheme: CupertinoTextThemeData(
     textStyle: TextStyle(
-      color: Colors.white,
+      color: app_text_color,
     ),
   ),
 );
