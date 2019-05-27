@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/widgets/reusable_card.dart';
 import 'package:flutter/material.dart';
 
 class BMICalculator extends StatefulWidget {
@@ -14,65 +15,25 @@ class _BMICalculatorState extends State<BMICalculator> {
           child: Row(
             children: <Widget>[
               Expanded(
-                child: Container(
-                  margin: EdgeInsets.all(15.0),
-                  height: 200.0,
-                  width: 170.0,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF1D1E33),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
+                child: ReusableCard(),
               ),
               Expanded(
-                child: Container(
-                  margin: EdgeInsets.all(15.0),
-                  height: 200.0,
-                  width: 170.0,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF1D1E33),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
+                child: ReusableCard(),
               ),
             ],
           ),
         ),
         Expanded(
-          child: Container(
-            margin: EdgeInsets.all(15.0),
-            height: 200.0,
-            width: 170.0,
-            decoration: BoxDecoration(
-              color: Color(0xFF1D1E33),
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-          ),
+          child: ReusableCard(),
         ),
         Expanded(
           child: Row(
             children: <Widget>[
               Expanded(
-                child: Container(
-                  margin: EdgeInsets.all(15.0),
-                  height: 200.0,
-                  width: 170.0,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF1D1E33),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
+                child: ReusableCard(),
               ),
               Expanded(
-                child: Container(
-                  margin: EdgeInsets.all(15.0),
-                  height: 200.0,
-                  width: 170.0,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF1D1E33),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
+                child: ReusableCard(),
               ),
             ],
           ),
