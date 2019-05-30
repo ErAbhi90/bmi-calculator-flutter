@@ -4,22 +4,22 @@ import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
 final ThemeData _androidTheme = ThemeData.dark().copyWith(
-  primaryColor: app_primary_color,
-  scaffoldBackgroundColor: app_scaffold_background_color,
+  primaryColor: kPrimaryColor,
+  scaffoldBackgroundColor: KScaffoldBackgroundColor,
   textTheme: TextTheme(
     body1: TextStyle(
-      color: app_text_color,
+      color: kTextColor,
     ),
   ),
 );
 
 final CupertinoThemeData _iosTheme = CupertinoThemeData(
-  primaryColor: app_primary_color,
-  scaffoldBackgroundColor: app_scaffold_background_color,
-  barBackgroundColor: app_accent_color,
+  primaryColor: kPrimaryColor,
+  scaffoldBackgroundColor: KScaffoldBackgroundColor,
+  barBackgroundColor: kAccentColor,
   textTheme: CupertinoTextThemeData(
     textStyle: TextStyle(
-      color: app_text_color,
+      color: kTextColor,
     ),
   ),
 );

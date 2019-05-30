@@ -15,10 +15,10 @@ class CardIconContent extends StatelessWidget {
       children: <Widget>[
         Icon(
           cardIcon,
-          size: card_icon_size,
+          size: kCardIconSize,
         ),
         SizedBox(
-          height: card_sized_box_height,
+          height: kCardSizedBoxHeight,
         ),
         Text(
           cardLabel,

@@ -6,31 +6,33 @@ import 'package:bmi_calculator/widgets/reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+enum Gender { male, female }
+
 class BMICalculator extends StatefulWidget {
   @override
   _BMICalculatorState createState() => _BMICalculatorState();
 }
 
 class _BMICalculatorState extends State<BMICalculator> {
-  Color maleCardColor = reusable_card_inactive_color;
-  Color femaleCardColor = reusable_card_inactive_color;
+  Color maleCardColor = kReusableCardInactiveColor;
+  Color femaleCardColor = kReusableCardInactiveColor;
 
-  void updateColor(int gender) {
-    if (gender == 1) {
-      if (maleCardColor == reusable_card_inactive_color) {
-        maleCardColor = reusable_card_active_color;
-        femaleCardColor = reusable_card_inactive_color;
+  void updateColor(Gender selectedGender) {
+    if (selectedGender == Gender.male) {
+      if (maleCardColor == kReusableCardInactiveColor) {
+        maleCardColor = kReusableCardActiveColor;
+        femaleCardColor = kReusableCardInactiveColor;
       } else {
-        maleCardColor = reusable_card_inactive_color;
+        maleCardColor = kReusableCardInactiveColor;
       }
     }
 
-    if (gender == 2) {
-      if (femaleCardColor == reusable_card_inactive_color) {
-        femaleCardColor = reusable_card_active_color;
-        maleCardColor = reusable_card_inactive_color;
+    if (selectedGender == Gender.female) {
+      if (femaleCardColor == kReusableCardInactiveColor) {
+        femaleCardColor = kReusableCardActiveColor;
+        maleCardColor = kReusableCardInactiveColor;
       } else {
-        femaleCardColor = reusable_card_inactive_color;
+        femaleCardColor = kReusableCardInactiveColor;
       }
     }
   }
@@ -46,14 +48,14 @@ class _BMICalculatorState extends State<BMICalculator> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      updateColor(1);
+                      updateColor(Gender.male);
                     });
                   },
                   child: ReusableCard(
-                    cardColor: reusable_card_inactive_color,
+                    cardColor: kReusableCardInactiveColor,
                     cardChild: CardIconContent(
                       cardIcon: FontAwesomeIcons.mars,
-                      cardLabel: text_reusable_card_male,
+                      cardLabel: kTextMale,
                     ),
                   ),
                 ),
@@ -62,14 +64,14 @@ class _BMICalculatorState extends State<BMICalculator> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      updateColor(2);
+                      updateColor(Gender.female);
                     });
                   },
                   child: ReusableCard(
-                    cardColor: reusable_card_inactive_color,
+                    cardColor: kReusableCardInactiveColor,
                     cardChild: CardIconContent(
                       cardIcon: FontAwesomeIcons.venus,
-                      cardLabel: text_reusable_card_female,
+                      cardLabel: kTextFemale,
                     ),
                   ),
                 ),
@@ -79,7 +81,7 @@ class _BMICalculatorState extends State<BMICalculator> {
         ),
         Expanded(
           child: ReusableCard(
-            cardColor: reusable_card_active_color,
+            cardColor: kReusableCardActiveColor,
           ),
         ),
         Expanded(
@@ -87,22 +89,22 @@ class _BMICalculatorState extends State<BMICalculator> {
             children: <Widget>[
               Expanded(
                 child: ReusableCard(
-                  cardColor: reusable_card_active_color,
+                  cardColor: kReusableCardActiveColor,
                 ),
               ),
               Expanded(
                 child: ReusableCard(
-                  cardColor: reusable_card_active_color,
+                  cardColor: kReusableCardActiveColor,
                 ),
               ),
             ],
           ),
         ),
         Container(
-          color: bottom_container_color,
+          color: kBottomContainerColor,
           margin: EdgeInsets.only(top: 10.0),
           width: double.infinity,
-          height: bottom_container_height,
+          height: kBottomContainerHeight,
         ),
       ],
     );
