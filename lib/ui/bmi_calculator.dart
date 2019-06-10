@@ -1,6 +1,7 @@
-import 'package:bmi_calculator/common/app_colors.dart';
-import 'package:bmi_calculator/common/app_dimens.dart';
-import 'package:bmi_calculator/common/app_strings.dart';
+import 'package:bmi_calculator/constants/app_colors.dart';
+import 'package:bmi_calculator/constants/app_dimens.dart';
+import 'package:bmi_calculator/constants/app_strings.dart';
+import 'package:bmi_calculator/constants/app_styles.dart';
 import 'package:bmi_calculator/widgets/card_icon_content.dart';
 import 'package:bmi_calculator/widgets/reusable_card.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,8 @@ class BMICalculator extends StatefulWidget {
 }
 
 class _BMICalculatorState extends State<BMICalculator> {
-Gender selectedGender;
+  Gender selectedGender;
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +63,42 @@ Gender selectedGender;
         Expanded(
           child: ReusableCard(
             cardColor: kReusableCardActiveColor,
+            cardChild: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Text(
+                  'HEIGHT',
+                  style: kLabelTextStyle,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: <Widget>[
+                    Text(
+                      height.toString(),
+                      style: kBigLabelTextStyle,
+                    ),
+                    Text(
+                      'cm',
+                      style: kLabelTextStyle,
+                    ),
+                    Slider(
+                      value: height.toDouble(),
+                      min: kSliderMinValue,
+                      max: kSliderMaxValue,
+                      activeColor: kSliderActiveColor,
+                      inactiveColor: kSliderInactiveColor,
+                      onChanged: (double newValue) {
+                        setState(() {
+                          height = newValue.round();
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
         Expanded(

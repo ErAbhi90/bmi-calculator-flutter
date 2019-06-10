@@ -1,5 +1,5 @@
-import 'package:bmi_calculator/common/app_dimens.dart';
-import 'package:bmi_calculator/common/app_styles.dart';
+import 'package:bmi_calculator/constants/app_dimens.dart';
+import 'package:bmi_calculator/constants/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CardIconContent extends StatelessWidget {
@@ -22,7 +22,7 @@ class CardIconContent extends StatelessWidget {
         ),
         Text(
           cardLabel,
-          style: labelTextStyle,
+          style: kLabelTextStyle,
         )
       ],
     );
