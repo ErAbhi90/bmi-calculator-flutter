@@ -14,28 +14,7 @@ class BMICalculator extends StatefulWidget {
 }
 
 class _BMICalculatorState extends State<BMICalculator> {
-  Color maleCardColor = kReusableCardInactiveColor;
-  Color femaleCardColor = kReusableCardInactiveColor;
-
-  void updateColor(Gender selectedGender) {
-    if (selectedGender == Gender.male) {
-      if (maleCardColor == kReusableCardInactiveColor) {
-        maleCardColor = kReusableCardActiveColor;
-        femaleCardColor = kReusableCardInactiveColor;
-      } else {
-        maleCardColor = kReusableCardInactiveColor;
-      }
-    }
-
-    if (selectedGender == Gender.female) {
-      if (femaleCardColor == kReusableCardInactiveColor) {
-        femaleCardColor = kReusableCardActiveColor;
-        maleCardColor = kReusableCardInactiveColor;
-      } else {
-        femaleCardColor = kReusableCardInactiveColor;
-      }
-    }
-  }
+Gender selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -45,34 +24,34 @@ class _BMICalculatorState extends State<BMICalculator> {
           child: Row(
             children: <Widget>[
               Expanded(
-                child: GestureDetector(
-                  onTap: () {
+                child: ReusableCard(
+                  onPress: () {
                     setState(() {
-                      updateColor(Gender.male);
+                      selectedGender = Gender.male;
                     });
                   },
-                  child: ReusableCard(
-                    cardColor: kReusableCardInactiveColor,
-                    cardChild: CardIconContent(
-                      cardIcon: FontAwesomeIcons.mars,
-                      cardLabel: kTextMale,
-                    ),
+                  cardColor: selectedGender == Gender.male
+                      ? kReusableCardActiveColor
+                      : kReusableCardInactiveColor,
+                  cardChild: CardIconContent(
+                    cardIcon: FontAwesomeIcons.mars,
+                    cardLabel: kTextMale,
                   ),
                 ),
               ),
               Expanded(
-                child: GestureDetector(
-                  onTap: () {
+                child: ReusableCard(
+                  onPress: () {
                     setState(() {
-                      updateColor(Gender.female);
+                      selectedGender = Gender.female;
                     });
                   },
-                  child: ReusableCard(
-                    cardColor: kReusableCardInactiveColor,
-                    cardChild: CardIconContent(
-                      cardIcon: FontAwesomeIcons.venus,
-                      cardLabel: kTextFemale,
-                    ),
+                  cardColor: selectedGender == Gender.female
+                      ? kReusableCardActiveColor
+                      : kReusableCardInactiveColor,
+                  cardChild: CardIconContent(
+                    cardIcon: FontAwesomeIcons.venus,
+                    cardLabel: kTextFemale,
                   ),
                 ),
               ),
