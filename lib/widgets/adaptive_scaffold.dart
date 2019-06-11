@@ -36,9 +36,6 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
             title: Text('BMI Calculator'),
           ),
           body: widget.child,
-          floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.add),
-          ),
         ),
       );
     }

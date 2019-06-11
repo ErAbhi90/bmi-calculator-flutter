@@ -71,11 +71,14 @@ class _BMICalculatorState extends State<BMICalculator> {
           child: ReusableCard(
             cardColor: kReusableCardActiveColor,
             cardChild: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
                   'HEIGHT',
                   style: kLabelTextStyle,
+                ),
+                SizedBox(
+                  height: 5.0,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -90,20 +93,22 @@ class _BMICalculatorState extends State<BMICalculator> {
                       'cm',
                       style: kLabelTextStyle,
                     ),
-                    SliderTheme(
-                      data: getSliderTheme(context),
-                      child: Slider(
-                        value: height.toDouble(),
-                        min: kSliderMinValue,
-                        max: kSliderMaxValue,
-                        onChanged: (double newValue) {
-                          setState(() {
-                            height = newValue.round();
-                          });
-                        },
-                      ),
-                    ),
                   ],
+                ),
+                SliderTheme(
+                  data: getSliderTheme(context),
+                  child: Slider(
+                    value: height.toDouble(),
+                    min: kSliderMinValue,
+                    max: kSliderMaxValue,
+                    onChanged: (double newValue) {
+                      setState(
+                        () {
+                          height = newValue.round();
+                        },
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
@@ -118,15 +123,15 @@ class _BMICalculatorState extends State<BMICalculator> {
                   cardChild: Column(
                     children: <Widget>[
                       Text(
-                        'AGE',
+                        'WEIGHT',
                         style: kLabelTextStyle,
                       ),
                       Text(
-                        age.toString(),
+                        weight.toString(),
                         style: kBigLabelTextStyle,
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 5.0,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -135,18 +140,18 @@ class _BMICalculatorState extends State<BMICalculator> {
                             icon: FontAwesomeIcons.minus,
                             onPress: () {
                               setState(() {
-                                age--;
+                                weight--;
                               });
                             },
                           ),
                           SizedBox(
-                            width: 10,
+                            width: 15.0,
                           ),
                           RoundIconButton(
                             icon: FontAwesomeIcons.plus,
                             onPress: () {
                               setState(() {
-                                age++;
+                                weight++;
                               });
                             },
                           ),
@@ -162,15 +167,15 @@ class _BMICalculatorState extends State<BMICalculator> {
                   cardChild: Column(
                     children: <Widget>[
                       Text(
-                        'WEIGHT',
+                        'AGE',
                         style: kLabelTextStyle,
                       ),
                       Text(
-                        weight.toString(),
+                        age.toString(),
                         style: kBigLabelTextStyle,
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 5.0,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -179,18 +184,18 @@ class _BMICalculatorState extends State<BMICalculator> {
                             icon: FontAwesomeIcons.minus,
                             onPress: () {
                               setState(() {
-                                weight--;
+                                age--;
                               });
                             },
                           ),
                           SizedBox(
-                            width: 10,
+                            width: 15.0,
                           ),
                           RoundIconButton(
                             icon: FontAwesomeIcons.plus,
                             onPress: () {
                               setState(() {
-                                weight++;
+                                age++;
                               });
                             },
                           ),
