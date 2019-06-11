@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
+import 'app_dimens.dart';
 
 final ThemeData _androidTheme = ThemeData.dark().copyWith(
   primaryColor: kPrimaryColor,
@@ -23,6 +24,21 @@ final CupertinoThemeData _iosTheme = CupertinoThemeData(
     ),
   ),
 );
+
+SliderThemeData getSliderTheme(BuildContext context) {
+  return SliderTheme.of(context).copyWith(
+    thumbShape: RoundSliderThumbShape(
+      enabledThumbRadius: kSliderEnabledThumbRadius,
+    ),
+    overlayShape: RoundSliderOverlayShape(
+      overlayRadius: kSliderOverlayRadius,
+    ),
+    thumbColor: kSliderActiveColor,
+    activeTrackColor: kSliderTrackColor,
+    inactiveTrackColor: kSliderInactiveTrackColor,
+    overlayColor: kSliderOverlayColor,
+  );
+}
 
 CupertinoThemeData getIOSTheme() {
   return _iosTheme;

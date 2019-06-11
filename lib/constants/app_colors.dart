@@ -11,4 +11,8 @@ const kReusableCardInactiveColor = Color(0xFF111328);
 const kReusableCardTextColor = Color(0xFF8D8E98);
 const kBottomContainerColor = Color(0xFFEB1555);
 const kSliderActiveColor = Color(0xFFEB1555);
-const kSliderInactiveColor = Color(0xFF8D8E98);
+const kSliderInactiveTrackColor = Color(0xFF8D8E98);
+const kSliderOverlayColor = Color(0x29EB1555);
+const kSliderTrackColor = Colors.white;
+
+const kRoundButtonBgColor = Color(0xFF4C4F5E);
