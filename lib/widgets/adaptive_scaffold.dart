@@ -1,11 +1,14 @@
 import 'dart:io';
 
 import 'package:bmi_calculator/constants/app_theme.dart';
-import 'package:bmi_calculator/ui/bmi_calculator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AdaptiveScaffold extends StatefulWidget {
+  AdaptiveScaffold({this.child});
+
+  final Widget child;
+
   @override
   _AdaptiveScaffoldState createState() => _AdaptiveScaffoldState();
 }
@@ -22,7 +25,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
               "BMI Calculator",
             ),
           ),
-          child: BMICalculator(),
+          child: widget.child,
         ),
       );
     } else {
@@ -32,7 +35,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
           appBar: AppBar(
             title: Text('BMI Calculator'),
           ),
-          body: BMICalculator(),
+          body: widget.child,
           floatingActionButton: FloatingActionButton(
             child: Icon(Icons.add),
           ),
