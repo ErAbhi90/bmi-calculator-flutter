@@ -3,6 +3,7 @@ import 'package:bmi_calculator/constants/app_dimens.dart';
 import 'package:bmi_calculator/constants/app_strings.dart';
 import 'package:bmi_calculator/constants/app_styles.dart';
 import 'package:bmi_calculator/constants/app_theme.dart';
+import 'package:bmi_calculator/model/calculator_functionality.dart';
 import 'package:bmi_calculator/widgets/bottom_button.dart';
 import 'package:bmi_calculator/widgets/card_icon_content.dart';
 import 'package:bmi_calculator/widgets/reusable_card.dart';
@@ -139,9 +140,11 @@ class _BMICalculatorState extends State<BMICalculator> {
                           RoundIconButton(
                             icon: FontAwesomeIcons.minus,
                             onPress: () {
-                              setState(() {
-                                weight--;
-                              });
+                              setState(
+                                () {
+                                  weight--;
+                                },
+                              );
                             },
                           ),
                           SizedBox(
@@ -150,9 +153,11 @@ class _BMICalculatorState extends State<BMICalculator> {
                           RoundIconButton(
                             icon: FontAwesomeIcons.plus,
                             onPress: () {
-                              setState(() {
-                                weight++;
-                              });
+                              setState(
+                                () {
+                                  weight++;
+                                },
+                              );
                             },
                           ),
                         ],
@@ -210,10 +215,19 @@ class _BMICalculatorState extends State<BMICalculator> {
         ),
         BottomButton(
           onTap: () {
+            CalculatorFunctionality calc = CalculatorFunctionality(
+              height: height,
+              weight: weight,
+            );
+
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => BmiResults(),
+                builder: (context) => BmiResults(
+                      bmiResult: calc.calculateBMI(),
+                      resultText: calc.getResult(),
+                      resultInterpretation: calc.getInterpretation(),
+                    ),
               ),
             );
           },
